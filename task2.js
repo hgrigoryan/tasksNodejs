@@ -7,8 +7,8 @@ function myFlat(arr, dept = 1){
     arr.forEach(element => {
         if(Array.isArray(element)){
             let subArr = myFlat(element, dept);
-            subArr.forEach(element => newArr.push(element));
-            //newArr.concat(subArr);
+            //subArr.forEach(element => newArr.push(element));
+            newArr = newArr.concat(subArr);
         }
         else
             newArr.push(element);
