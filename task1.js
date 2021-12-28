@@ -1,7 +1,10 @@
 //myMap implementation
 function myMap(arr, func){
     let newArr = [];
-    arr.forEach(element => newArr.push(func(element)));       
+    //arr.forEach(element => newArr.push(func(element, arr.indexOf(element) , arr))); 
+    for(let i = 0; i < arr.length; i++){
+        newArr.push(func(arr[i], i , arr));
+    }      
     return newArr;
 }
 
@@ -11,8 +14,13 @@ function multiply(arg){
     return arg*2;
 }
 
+function printArrayElement(element, index){
+    return (`arr[${index}] = ${element}`);
+}
+
 console.log("map test");
 console.log(myMap(arr, multiply));
+console.log(myMap(arr, printArrayElement));
 console.log(myMap(arr, z=>z+3));
 console.log(myMap(arr, function(num) {
     return Math.sqrt(num)}))
