@@ -30,7 +30,7 @@ console.log(myMap(arr, function(num) {
 function mySlice(arr, start = 0, end){
     let newArr = [];
     let length = arr.length;
-    if(start === null || Number(start) === NaN)
+    if(start === null || isNaN(Number(start)))
         start = 0;
     if(end === undefined || end > length)
         end = arr.length;
@@ -51,5 +51,5 @@ console.log("\nslice test");
 console.log(mySlice(arr1));
 console.log(mySlice(arr1, 2));
 console.log(mySlice(arr1, 3, 5));
-console.log(arr1.slice(null , -8));
-console.log(mySlice(arr1, null, -8));
+console.log(arr1.slice("dr" , 7));
+console.log(mySlice(arr1, "dr", 7));
