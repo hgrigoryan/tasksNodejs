@@ -75,7 +75,7 @@ function List(){
 
     this.delete = function(value){
         if(length === 0){
-            return;
+            return false;
         }
 
         if(length === 1){
@@ -92,17 +92,19 @@ function List(){
         
 
         let currentNode = head.next;
+        let result = false;
         for(let i = 1; i < length; ++i){
             if(currentNode.value === value){
                 currentNode.prev.next = currentNode.next;
                 currentNode.next.prev = currentNode.prev;
+                result = true;
+                length--;
                 break;
             } 
             currentNode = currentNode.next;
         }
 
-        length--;
-        return true;
+        return result;
     } 
 
     this.count = function(){
@@ -119,7 +121,7 @@ function Node(value){
 // testing
 let list = new List();
 
-console.log("***************Start logging**************\n");
+console.log("*************** Start logging **************\n");
 console.log("Element number after first push: " + list.push(1));
 console.log("Element number after second push: " + list.push(3));
 console.log("******************************************");
@@ -145,11 +147,13 @@ for(let i = 1; i < 10; ++i){
 // }
 console.log("Element count in the list after for loop is: " + list.count());
 console.log("Deleting element with the value 6,\nIs delition performed: " + list.delete(6));
+console.log("Deleting element with the value 24,\nIs delition performed: " + list.delete(24));
 console.log("Lets shift whole list to see what remains there:");
-let length = list.count();
 
+let length = list.count();
 for(let i = 0; i < length; ++i){
     console.log(list.shift(i));
 }
 
+console.log("**************** End logging *******************");
 
