@@ -16,8 +16,8 @@ function List(){
             tail = node;
         } 
         else{
-            head.next = node;
-            node.prev = head;
+            tail.next = node;
+            node.prev = tail;
             tail = node;
         }
         return ++this.length;
@@ -29,9 +29,8 @@ function List(){
         }
         deletedValue = tail.value;
         if(this.length === 1){
-            // head & tail both are refered to the same object
-            // so making one of them null & both will become null
             head = null;
+            tail = null;
         }
         else{
             tail.prev.next = null;
@@ -62,9 +61,8 @@ function List(){
         }
         deletedValue = head.value;
         if(this.length === 1){
-            // head & tail both are refered to the same object
-            // so making one of them null & both will become null
             head = null;
+            tail = null;
         }
         else{
             head.next.prev = null;
@@ -82,18 +80,19 @@ function List(){
 
         if(this.length === 1){
             if(head.value !== value){
-                return;
+                return false;
             }
             else{
-                head = tail = null;
-                return --this.length;
+                head = null;
+                tail = null;
+                this.length--;
+                return true;
             }
         }
         
 
         let currentNode = head.next;
-        for(let i = 0; i < this.length; ++i){
-            console.log(i);
+        for(let i = 1; i < this.length; ++i){
             if(currentNode.value === value){
                 currentNode.prev.next = currentNode.next;
                 currentNode.next.prev = currentNode.prev;
@@ -102,7 +101,8 @@ function List(){
             currentNode = currentNode.next;
         }
 
-        return --this.length;
+        this.length--;
+        return true;
     } 
 
     this.count = function(){
@@ -140,11 +140,16 @@ console.log("******************************************");
 for(let i = 1; i < 10; ++i){
     list.push(i);
 }
+// for(let i = 1; i < 10; ++i){
+//     list.shift(i);
+// }
 console.log("Element count in the list after for loop is: " + list.count());
-console.log("Deleting element with the value 6,\n Element count after delete: " + list.delete(6));
+console.log("Deleting element with the value 6,\n Is there element wit the value 6: " + list.delete(6));
 console.log("Lets shift whole list to see what remains there:");
-/*for(let i = 1; i < 10; ++i){
-    list.shift(i);
+let length = list.count();
+
+for(let i = 0; i < length; ++i){
+    console.log(list.shift(i));
 }
-*/
+
 
