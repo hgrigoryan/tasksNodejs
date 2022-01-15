@@ -7,11 +7,11 @@ function List(){
 
     let head = null;
     let tail = null;
-    this.length = 0;
+    let length = 0;
 
     this.push = function(value){
         let node = new Node(value);
-        if(this.length === 0){
+        if(length === 0){
             head = node;
             tail = node;
         } 
@@ -20,15 +20,15 @@ function List(){
             node.prev = tail;
             tail = node;
         }
-        return ++this.length;
+        return ++length;
     } 
 
     this.pop = function(){
-        if(this.length === 0){
+        if(length === 0){
             return;
         }
         deletedValue = tail.value;
-        if(this.length === 1){
+        if(length === 1){
             head = null;
             tail = null;
         }
@@ -37,13 +37,13 @@ function List(){
             tail = tail.prev;
         }
 
-        this.length--;
+        length--;
         return deletedValue;
     }
 
     this.unshift = function(value){
         let node = new Node(value);
-        if(this.length === 0){
+        if(length === 0){
             head = node;
             tail = node;
         } 
@@ -52,15 +52,15 @@ function List(){
             node.next = head;
             head = node;
         }
-        return ++this.length;
+        return ++length;
     }
 
     this.shift = function(){
-        if(this.length === 0){
+        if(length === 0){
             return;
         }
         deletedValue = head.value;
-        if(this.length === 1){
+        if(length === 1){
             head = null;
             tail = null;
         }
@@ -69,30 +69,30 @@ function List(){
             head = head.next;
         }
 
-        this.length--;
+        length--;
         return deletedValue;
     } 
 
     this.delete = function(value){
-        if(this.length === 0){
+        if(length === 0){
             return;
         }
 
-        if(this.length === 1){
+        if(length === 1){
             if(head.value !== value){
                 return false;
             }
             else{
                 head = null;
                 tail = null;
-                this.length--;
+                length--;
                 return true;
             }
         }
         
 
         let currentNode = head.next;
-        for(let i = 1; i < this.length; ++i){
+        for(let i = 1; i < length; ++i){
             if(currentNode.value === value){
                 currentNode.prev.next = currentNode.next;
                 currentNode.next.prev = currentNode.prev;
@@ -101,12 +101,12 @@ function List(){
             currentNode = currentNode.next;
         }
 
-        this.length--;
+        length--;
         return true;
     } 
 
     this.count = function(){
-        return this.length;
+        return length;
     }
 }
 
@@ -144,7 +144,7 @@ for(let i = 1; i < 10; ++i){
 //     list.shift(i);
 // }
 console.log("Element count in the list after for loop is: " + list.count());
-console.log("Deleting element with the value 6,\n Is there element wit the value 6: " + list.delete(6));
+console.log("Deleting element with the value 6,\nIs delition performed: " + list.delete(6));
 console.log("Lets shift whole list to see what remains there:");
 let length = list.count();
 
