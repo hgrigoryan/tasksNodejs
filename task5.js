@@ -1,5 +1,5 @@
 function Character(name){
-    this.name;
+    this.name = name;
     this.speed = (Math.random() * 5).toFixed(3);
     // adding 1 if speed <= 4, to get 
     // speed value between (0,5]
@@ -27,13 +27,24 @@ function generateCharacters(){
     return [heroes, villains];
 }
 
-function attac(hero, villain){
+function attack(hero, villain){
     
+}
+
+function chooseRandomActor(arr){
+    let attackerName = arr[Math.floor(Math.random() * 9)];
+    console.log("attackerName: ", attackerName);
+    return attackerName;
 }
 
 function startBattle(){
     [heroes, villains] = generateCharacters();
     let whoStarts = (Math.random() * 2) < 1 ? "heroes" : "villains";
+    for(let i = 0; i < 50; ++i){
+        chooseRandomActor(heroes);
+        chooseRandomActor(villains);
+    }
     
-
 }
+
+startBattle();
