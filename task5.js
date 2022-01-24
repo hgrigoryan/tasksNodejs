@@ -1,3 +1,4 @@
+"use strict"
 function Character(name){
     this.name = name;
     this.speed = +((Math.random() * 4 + 1).toFixed(3));
@@ -15,7 +16,7 @@ for(let i = 0; i < 10; ++i){
 }
 
 function removeDeadCharacter(character){
-    index = heroes.indexOf(character);
+    let index = heroes.indexOf(character);
     if(index === -1){
 
         index = villains.indexOf(character);
@@ -43,20 +44,23 @@ function attack(attacker, defender){
         defender.health -= attacker.power;
     }
 }
-
+let count = 0;
 function chooseRandomCharacterAndAttac(attacker, whoAttacs){;
  
     if(heroes.length === 0 || villains.length === 0){
         return;
     }
+    let defenderIndex;
+    let defender;
     if(whoAttacs === "hero"){
-        let defenderIndex = [Math.floor(Math.random() * villains.length)];
+        defenderIndex = [Math.floor(Math.random() * villains.length)];
         defender = villains[defenderIndex];
     }else if(whoAttacs === "villain"){
-        let defenderIndex = [Math.floor(Math.random() * heroes.length)];
+        defenderIndex = [Math.floor(Math.random() * heroes.length)];
         defender = heroes[defenderIndex];
     }
     //console.log("chooseRandomCharacterAndAttac: " + attacker.name + " attac " + defender.name );
+    count++;
     attack(attacker, defender);
 }
 
@@ -78,10 +82,12 @@ function printWinnerInfo(winner){
 function startBattle(){
 
     if(heroes.length === 0){
+        console.log(count);
         printWinnerInfo(villains);
         return;
     }
     else if(villains.length === 0){
+        console.log(count);
         printWinnerInfo(heroes);
         return;
     }
@@ -91,11 +97,11 @@ function startBattle(){
         if(heroes[i]){
             setTimeout(chooseRandomCharacterAndAttac, 1/heroes[i].speed*5000, heroes[i], "hero");
         }
-   }
-   for(let i = 0; i < villains.length; ++i){
-    chooseRandomCharacterAndAttac(villains[i], "villain");
-    if(villains[i]){
-        setTimeout(chooseRandomCharacterAndAttac, 1/villains[i].speed*5000, villains[i], "villain");
+    }
+    for(let i = 0; i < villains.length; ++i){
+        chooseRandomCharacterAndAttac(villains[i], "villain");
+        if(villains[i]){
+            setTimeout(chooseRandomCharacterAndAttac, 1/villains[i].speed*5000, villains[i], "villain");
     }
 }
    // Call start Battle recurcively till one of character arrayes will be empty
