@@ -1,0 +1,32 @@
+{
+  "name": "tasksnodejs",
+  "version": "1.0.0",
+  "description": "This repository includes all taskes done during ACA node.js course.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node task6.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hgrigoryan/tasksNodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hgrigoryan/tasksNodejs/issues"
+  },
+  "homepage": "https://github.com/hgrigoryan/tasksNodejs#readme",
+  "devDependencies": {
+    "eslint": "^8.9.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.4",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.5.1"
+  },
+  "dependencies": {
+    "moment": "^2.29.1"
+  }
+}
