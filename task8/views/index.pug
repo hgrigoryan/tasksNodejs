@@ -1,0 +1,27 @@
+doctype html
+html(lang='en')
+  head
+    title("contacts")
+    style(type='text/css').
+  body     
+    center
+      h1 Contacts
+      br
+      table(style='width:70%', border='1')
+        thead
+            tr
+              th Name
+              th Number
+              th Actions             
+        tbody
+          each task in tasks
+              tr
+                td #{task.name}
+                td #{task.phoneNumber}
+                td 
+                    a(href="contacts/edit"): button(type="button") Edit 
+                    button(type="button") Delite
+    
+      br
+      br           
+      a(href="contacts/new"): button(type="button") Add Contact
