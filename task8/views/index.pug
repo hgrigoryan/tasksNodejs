@@ -14,14 +14,15 @@ html(lang='en')
               th Number
               th Actions             
         tbody
-          each task in tasks
+          each contact in contacts
               tr
-                td #{task.name}
-                td #{task.phoneNumber}
+                td #{contact.name}
+                td #{contact.phoneNumber}
                 td 
                     a(href="contacts/edit"): button(type="button") Edit 
                     button(type="button") Delite
     
       br
-      br           
+      br 
+    right          
       a(href="contacts/new"): button(type="button") Add Contact

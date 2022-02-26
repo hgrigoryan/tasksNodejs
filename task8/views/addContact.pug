@@ -5,18 +5,17 @@ html(lang='en')
   body     
     center
       h1 Adding a new contact
-      table(style='width:70%', border='1')
-        thead
-            tr
-              th Name
-              th Number
-              th Action             
-        tbody
-              tr
-                td 
-                    textarea(id="theTextarea", style= 'border-width: 0')
-                td
-                    textarea(id="theTextarea", style= 'border-width: 0')
-                td
-                    button(type="button") Add 
+      
+      form(action="/contacts/new" method="post")     
+        label(for="name") First Name
+        br
+        input(type="text" for="id" name="name")
+        br
+        br
+        label(for="phoneNumber") Phone Number
+        br
+        input(type="text" for="id" name="phoneNumber")
+        br
+        br
+        input(type="submit" value="Add")
     
