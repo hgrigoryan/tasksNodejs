@@ -19,8 +19,8 @@ html(lang='en')
                 td #{contact.name}
                 td #{contact.phoneNumber}
                 td 
-                    a(href="contacts/edit"): button(type="button") Edit 
-                    button(type="button") Delite
+                    a(href=`contacts/edit/${contact.id}`): button(type="button", style= 'margin-left: 30') Edit 
+                    a(href=`contacts/${contact.id}`): button(type="button") Delite
     
       br
       br 

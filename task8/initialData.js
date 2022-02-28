@@ -1,4 +1,4 @@
-module.exports = [
+const contacts = [
     {name: "Anna", phoneNumber: "+374 91000000"}, 
     {name: "Ani", phoneNumber: "+374 91111111"},
     {name: "Mane", phoneNumber: "+374 91222222"},
@@ -9,3 +9,14 @@ module.exports = [
     {name: "Nare", phoneNumber: "+374 93666666"},
     {name: "Narine", phoneNumber: "+374 10333333"},
 ]
+
+function getRandomId() {
+    // Getting random number from 10000 to 99999
+    return (Math.floor(Math.random() * (99999 - 10000) ) + 10000).toString();
+  }
+
+contacts.forEach(contact => {
+    contact.id = getRandomId();
+})
+
+module.exports = {contacts, getRandomId}

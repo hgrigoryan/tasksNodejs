@@ -5,16 +5,15 @@ html(lang='en')
   body     
     center
       h1 Editing contact
-      table(style='width:70%', border='1')
-        thead
-            tr
-              th Name
-              th Number
-              th Action             
-        tbody
-              tr
-                td #{name}
-                td #{phoneNumber}
-                td
-                    button(type="button") Edit 
-    
+      form(action=`/contacts/edit/${contact.id}` method="post")     
+        label(for="name") First Name
+        br
+        input(type="text" for="id" name="name" value= contact.name)
+        br
+        br
+        label(for="phoneNumber") Phone Number
+        br
+        input(type="text" for="id" name="phoneNumber" value= contact.phoneNumber)
+        br
+        br
+        a(href=`contacts/edit${contact.id}`): button(type="submit") Save
