@@ -10,6 +10,8 @@ const contacts = [
     {name: "Narine", phoneNumber: "+374 10333333"},
 ]
 
+const providerCodes = ["10", "33", "55", "77", "91", "93", "94", "96", "98", "99"];
+
 function getRandomId() {
     // Getting random number from 10000 to 99999
     return (Math.floor(Math.random() * (99999 - 10000) ) + 10000).toString();
@@ -19,4 +21,4 @@ contacts.forEach(contact => {
     contact.id = getRandomId();
 })
 
-module.exports = {contacts, getRandomId}
+module.exports = {contacts, providerCodes, getRandomId}
