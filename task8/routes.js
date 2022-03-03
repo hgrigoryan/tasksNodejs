@@ -22,12 +22,12 @@ router.get('/new', (req, res) => {
 })
 
 // Save new contact button handler
-router.post('/new',nameValidation, poneNumberValidation, (req, res) => {
+router.post('/new', nameValidation, poneNumberValidation, (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
-      return res.status(400).json({ errors: errors.array() });
+        return res.status(400).json({ errors: errors.array()}); 
     }
-
+    
     const contact = req.body;
     contact.id = getRandomId();
     contacts.push(contact);
