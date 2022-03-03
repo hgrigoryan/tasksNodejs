@@ -2,7 +2,7 @@ const {body} = require('express-validator');
 const {providerCodes} = require("./initialData");
 
 const nameValidation = [
-    body('name').trim().isLength({ min: 3 }).withMessage('Name empty.')
+    body('name').trim().isLength({ min: 1 }).withMessage('Name empty.')
     .isLength({ min: 3 }).withMessage('Name must contain min 3 letters.')
     .isAlpha().withMessage('Name must be alphabet letters.'),
 ]
