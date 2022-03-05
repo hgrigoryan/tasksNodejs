@@ -32,7 +32,6 @@ router.post('/new', nameValidation, poneNumberValidation, (req, res) => {
     contact.id = getRandomId();
     contacts.push(contact);
     res.redirect("/contacts");
-    res.render("index", {contacts});
 })
 
 // Edit button handler
@@ -55,7 +54,6 @@ router.post('/edit/:id',nameValidation, poneNumberValidation, (req, res) => {
     contacts[index].name = req.body.name;
     contacts[index].phoneNumber = req.body.phoneNumber;
     res.redirect("/contacts");
-    res.render("index", {contacts});
 })
 
 // Delete button handler
@@ -64,7 +62,6 @@ router.get('/:id', (req, res) => {
     const index = contacts.findIndex((contact) => contact.id === id);
     contacts.splice(index, 1);
     res.redirect("/contacts");
-    res.render("index", {contacts});
 })
 
 module.exports = router
