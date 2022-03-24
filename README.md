@@ -94,7 +94,7 @@ Description:<br/>
   [Black-Widow[10]  Spider-Man[20] Dr.Strange[5]]<br/>
   
   
-**Task 6. Streams**<br/>
+**task 6: Streams**<br/>
 Description:<br/>
   Initialize project with npm, eslint, prettier, editorconfig,
   install moment.js,
@@ -104,7 +104,7 @@ Description:<br/>
   Use Readable, Writable and Transform APIs exposed from stream module
   Use Transform stream to format the Date.
   
-**Task 7. NodeJS. FS**<br/>
+**task 7: NodeJS. FS**<br/>
 Description:<br/>
   Create a Node JS application that will recursively search all files in the directory given in
   command-line arguments and create a new file sorted_files.txt and write file paths and sizes 
@@ -122,7 +122,7 @@ Example:
   ./src/components/button/index.js----------200bytes
   
 
-**Task 8. Contacts App**<br/>
+**task 8: Contacts App**<br/>
 Description:<br/>
   Application will have
   * Home page(/) - all contacts should be rendered and there should be an "Add contact" button
