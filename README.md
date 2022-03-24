@@ -94,3 +94,40 @@ Description:<br/>
   [Black-Widow[10]  Spider-Man[20] Dr.Strange[5]]<br/>
   
   
+**Task 6. Streams**<br/>
+Description:<br/>
+  Initialize project with npm, eslint, prettier, editorconfig,
+  install moment.js,
+  run the project using the run script,
+  create an app that will write to a stream every second the current time formatted using moment.js and write that stream to the file.
+
+  Use Readable, Writable and Transform APIs exposed from stream module
+  Use Transform stream to format the Date.
+  
+**Task 7. NodeJS. FS**<br/>
+Description:<br/>
+  Create a Node JS application that will recursively search all files in the directory given in
+  command-line arguments and create a new file sorted_files.txt and write file paths and sizes 
+  in this file line by line sorted by file size.
+
+
+Example:
+  $ node app.js ./src
+
+  .....
+  sorted_files.txt
+
+  ./application.exe-------------------------------------35mb<br/>
+  ./src/main.js-------------------------------------------10kb
+  ./src/components/button/index.js----------200bytes
+  
+
+**Task 8. Contacts App**<br/>
+Description:<br/>
+  Application will have
+  * Home page(/) - all contacts should be rendered and there should be an "Add contact" button
+    which will redirect to "/new" page. All contacts have "Edit" and    "Delete" buttons.
+  * New contact(/contacts/new) page - form for adding a contact with name and phone number
+  * Edit contact(/contacts/edit/:contactId) page - form with contact data already filled and you can edit and save it, there should be a "Delete" button by clicking it     you can delete the selected contact
+
+    you should create and use middleware for validating contact data(Validate name as a string with min-length 2 and without any character other than  letter and phone     number as an Armenian phone number), use pug for view engine, use the express router
